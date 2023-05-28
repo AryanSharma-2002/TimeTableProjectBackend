@@ -11,7 +11,7 @@ const teacherRouter = require("./routes/teacherRouter");
 const classRouter = require("./routes/classRouter");
 const classTimeTableRouter = require("./routes/classTimeTableRouter");
 const app = express();
-
+const port=process.env.PORT_NO||5000;
 connectDB();
 
 app.use(cors());
@@ -31,6 +31,6 @@ app.use("/api/classTimeTable/", classTimeTableRouter);
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(process.env.PORT_NO, () => {
+app.listen(port, () => {
   console.log(`listening at port no. ${process.env.PORT_NO}`);
 });
